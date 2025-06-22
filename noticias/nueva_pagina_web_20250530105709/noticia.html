@@ -26,33 +26,40 @@
         <a href="../../noticiero.html" class="atras">← Volver</a>
     </div>
 
-    <h3 style="text-align: left;">
-        Nueva página web
-    </h3>
+    <div class="noticia-content">
+        <h3 style="text-align: left;">
+            Nueva página web
+        </h3>
 
-    <h4 style="text-align: left;"><em>
-        Nueva web de la asociación
-    </em></h4>
+        <h4 style="text-align: left;"><em>
+            Nueva web de la asociación
+        </em></h4>
 
-    <h5 style="text-align: left;">
-        <p>Esta nueva web es accesible desde el enlace:&nbsp;<a data-fr-linked="true" href="https://carucheros.github.io/Los-Carucheros/index.html">https://carucheros.github.io/Los-Carucheros/index.html</a></p>
-    </h5>
+        <h5 style="text-align: left;">
+            <p>Esta nueva web es accesible desde el enlace:&nbsp;<a data-fr-linked="true" href="https://carucheros.github.io/Los-Carucheros/index.html">https://carucheros.github.io/Los-Carucheros/index.html</a></p>
+        </h5>
 
-    <div id="Galeria">
-        <button class="gallery-nav prev" onclick="patras()">❮</button>
-        <div class="container" style="text-align: center;">
-            <img src="images/Captura de pantalla 2025-05-30 105700.png" alt="imagen" class="gallery-img" id="gallery-img">
-            <div style="margin-top: 10px;">
-                <a id="download-btn" href="images/Captura de pantalla 2025-05-30 105700.png" download>
-                    <button
-                        style="padding: 10px 20px; font-size: 1.5rem; cursor: pointer; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: 2px solid rgb(0, 0, 0); border-radius: 5px; font-family: Special Gothic; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">💾Descargar</button>
-                </a>
+        <div id="Galeria">
+            <button class="gallery-nav prev" onclick="patras()">❮</button>
+            <div class="container" style="text-align: center;">
+                <img src="images/Captura de pantalla 2025-05-30 105700.png" alt="imagen" class="gallery-img" id="gallery-img">
+                <div style="margin-top: 10px;">
+                    <a id="download-btn" href="images/Captura de pantalla 2025-05-30 105700.png" download>
+                        <button
+                            style="padding: 10px 20px; font-size: 1.5rem; cursor: pointer; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: 2px solid rgb(0, 0, 0); border-radius: 5px; font-family: Special Gothic; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">💾Descargar</button>
+                    </a>
+                </div>
             </div>
+            <button class="gallery-nav next" onclick="plante()">❯</button>
         </div>
-        <button class="gallery-nav next" onclick="plante()">❯</button>
     </div>
     <script>
-        const images = ["images/Captura de pantalla 2025-05-30 105700.png", "images/Captura de pantalla 2025-05-30 105651.png", "images/Captura de pantalla 2025-05-30 105644.png", "images/Captura de pantalla 2025-05-30 105427.png"];
+        const images = [
+            "images/Captura de pantalla 2025-05-30 105700.png",
+            "images/Captura de pantalla 2025-05-30 105651.png",
+            "images/Captura de pantalla 2025-05-30 105644.png",
+            "images/Captura de pantalla 2025-05-30 105427.png"
+        ];
         let index = 0;
         const imgEl = document.getElementById('gallery-img');
 
@@ -71,13 +78,25 @@
             document.getElementById("download-btn").href = images[index];
         }
 
-        updateGallery(); // set initial
+        function updateNavHeight() {
+            const img = document.getElementById('gallery-img');
+            const navs = document.querySelectorAll('.gallery-nav');
+            const maxHeight = window.innerHeight * 0.7;
+            const imgHeight = Math.min(img.height, maxHeight);
+            navs.forEach(btn => {
+                btn.style.height = imgHeight + 'px';
+            });
+        }
+
+        imgEl.onload = updateNavHeight;
+        updateGallery();
+        setTimeout(updateNavHeight, 100);
     </script>
     <style>
         #Galeria {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             margin: 10px;
             margin-top: 10px;
             max-height: 70vh;
@@ -87,15 +106,22 @@
             background-color: rgb(255, 255, 255);
             object-fit: cover;
             align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 70vh;
         }
 
         .gallery-img {
-            max-height: 70vh;
             width: 90%;
+            max-width: 800px;
+            height: auto;
+            max-height: 70vh;
             border-radius: 10px;
             object-fit: contain;
             border: 2px solid black;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            display: block;
         }
 
         .gallery-nav {
@@ -107,7 +133,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 70vh;
+            padding: 0 10px;
         }
 
         .gallery-nav:hover {
@@ -121,8 +147,19 @@
             <img src="../../logo_grande.png" alt="logo" style="width: 50%; height: auto;">
             <div style="text-align: center;">
                 <h1 style="font-family: Special Gothic Expanded One, sans-serif; font-weight: 400;">Contacto:</h1>
-                <h2 style="font-family: Special Gothic, sans-serif; font-weight: 400;">📩asoc.loscarucheros@outlook.com
+                <h2 style="font-family: Special Gothic, sans-serif; font-weight: 400; font-size: 1.5rem;">
+                    📩asoc.loscarucheros@outlook.com<br>
+                    <span style="font-size: 1.2em;">📱</span>
+                    <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank" style="color:#fff;text-decoration:underline; font-size: 1.2em;">
+                        Facebook
+                    </a>
+                    <!-- <span style="font-size: 1.2em;">📸</span>
+                    <a href="https://instagram.com/tu_usuario" target="_blank" style="color:#fff;text-decoration:underline; font-size: 1.2em;">
+                        Instagram
+                    </a> -->
+                </h2>
             </div>
+        </div>
     </div>
 </body>
 </html>

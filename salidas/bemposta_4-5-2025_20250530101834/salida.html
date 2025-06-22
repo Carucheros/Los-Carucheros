@@ -25,31 +25,35 @@
     <div id="atras">
         <a href="../../salidas.html" class="atras">← Volver</a>
     </div>
-    <h3 style="text-align: left;">Bemposta 4-5-2025</h3>
-    <h4 style="text-align: left;"><em>Salida en Bemposta, Mogadouro</em></h4>
-    <h5 style="text-align: left;">
-        <p><span
-                style='text-align: start;color: rgb(33, 37, 41);background-color: rgb(255, 255, 255);font-size: 16px;'>El
-                5 de abril de 2025, los <em>Carucheros de Sesn&aacute;ndez</em> participaron en el <strong>V Encontro
-                    Internacional de Rituais Ancestrais en Bemposta</strong>, Mogadouro, Portugal. Este evento ha
-                reunido a 70 grupos de mascaradas de pa&iacute;ses como Espa&ntilde;a, Portugal, Italia, Ruman&iacute;a
-                y M&eacute;xico.</span></p>
-    </h5>
-    <div id="Galeria">
-        <button class="gallery-nav prev" onclick="patras()">❮</button>
-        <div class="container" style="text-align: center;">
-            <img src="images/img1.jpg" alt="imagen" class="gallery-img" id="gallery-img">
-            <div style="margin-top: 10px;">
-                <a id="download-btn" href="images/img1.jpg" download>
-                    <button
-                        style="padding: 10px 20px; font-size: 1.5rem; cursor: pointer; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: 2px solid rgb(0, 0, 0); border-radius: 5px; font-family: Special Gothic; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">💾Descargar</button>
-                </a>
+    <div class="salida-content">
+        <h3 style="text-align: left;">Bemposta 4-5-2025</h3>
+        <h4 style="text-align: left;"><em>Salida en Bemposta, Mogadouro</em></h4>
+        <h5 style="text-align: left;">
+            <p><span
+                    style='text-align: start;color: rgb(33, 37, 41);background-color: rgb(255, 255, 255);font-size: 16px;'>El
+                    5 de abril de 2025, los <em>Carucheros de Sesn&aacute;ndez</em> participaron en el <strong>V Encontro
+                        Internacional de Rituais Ancestrais en Bemposta</strong>, Mogadouro, Portugal. Este evento ha
+                    reunido a 70 grupos de mascaradas de pa&iacute;ses como Espa&ntilde;a, Portugal, Italia, Ruman&iacute;a
+                    y M&eacute;xico.</span></p>
+        </h5>
+        <div id="Galeria">
+            <button class="gallery-nav prev" onclick="patras()">❮</button>
+            <div class="container" style="text-align: center;">
+                <img src="images/img1.jpg" alt="imagen" class="gallery-img" id="gallery-img">
+                <div style="margin-top: 10px;">
+                    <a id="download-btn" href="images/img1.jpg" download>
+                        <button
+                            style="padding: 10px 20px; font-size: 1.5rem; cursor: pointer; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: 2px solid rgb(0, 0, 0); border-radius: 5px; font-family: Special Gothic; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">💾Descargar</button>
+                    </a>
+                </div>
             </div>
+            <button class="gallery-nav next" onclick="plante()">❯</button>
         </div>
-        <button class="gallery-nav next" onclick="plante()">❯</button>
     </div>
     <script>
-        const images = ["images/img1.jpg", "images/img2.jpg", "images/img3.jpg", "images/img4.jpg", "images/img5.jpg", "images/img6.jpg", "images/img7.jpg", "images/img8.jpg", "images/img9.jpg", "images/img10.jpg"];
+        const images = [
+            "images/img1.jpg", "images/img2.jpg", "images/img3.jpg", "images/img4.jpg", "images/img5.jpg", "images/img6.jpg", "images/img7.jpg", "images/img8.jpg", "images/img9.jpg", "images/img10.jpg"
+        ];
         let index = 0;
         const imgEl = document.getElementById('gallery-img');
         function plante() {
@@ -64,13 +68,24 @@
             imgEl.src = images[index];
             document.getElementById("download-btn").href = images[index];
         }
+        function updateNavHeight() {
+            const img = document.getElementById('gallery-img');
+            const navs = document.querySelectorAll('.gallery-nav');
+            const maxHeight = window.innerHeight * 0.7;
+            const imgHeight = Math.min(img.height, maxHeight);
+            navs.forEach(btn => {
+                btn.style.height = imgHeight + 'px';
+            });
+        }
+        imgEl.onload = updateNavHeight;
         updateGallery();
+        setTimeout(updateNavHeight, 100);
     </script>
     <style>
         #Galeria {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             margin: 10px;
             margin-top: 10px;
             max-height: 70vh;
@@ -80,15 +95,22 @@
             background-color: rgb(255, 255, 255);
             object-fit: cover;
             align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 70vh;
         }
 
         .gallery-img {
-            max-height: 70vh;
             width: 90%;
+            max-width: 800px;
+            height: auto;
+            max-height: 70vh;
             border-radius: 10px;
             object-fit: contain;
             border: 2px solid black;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            display: block;
         }
 
         .gallery-nav {
@@ -100,11 +122,46 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 70vh;
+            padding: 0 10px;
         }
 
         .gallery-nav:hover {
             background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .salida-content {
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .salida-content h3 {
+            font-family: 'Special Gothic Expanded One', sans-serif;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .salida-content h4 {
+            font-family: 'Special Gothic', sans-serif;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .salida-content h5 {
+            font-family: 'Special Gothic', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .salida-content p {
+            font-family: 'Special Gothic', sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
         }
     </style>
     <div class="botnav">
@@ -113,7 +170,17 @@
             <img src="../../logo_grande.png" alt="logo" style="width: 50%; height: auto;">
             <div style="text-align: center;">
                 <h1 style="font-family: Special Gothic Expanded One, sans-serif; font-weight: 400;">Contacto:</h1>
-                <h2 style="font-family: Special Gothic, sans-serif; font-weight: 400;">📩asoc.loscarucheros@outlook.com
+                <h2 style="font-family: Special Gothic, sans-serif; font-weight: 400; font-size: 1.5rem;">
+                    📩asoc.loscarucheros@outlook.com<br>
+                    <span style="font-size: 1.2em;">📱</span>
+                    <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank" style="color:#fff;text-decoration:underline; font-size: 1.2em;">
+                        Facebook
+                    </a>
+                    <!-- <span style="font-size: 1.2em;">📸</span>
+                    <a href="https://instagram.com/tu_usuario" target="_blank" style="color:#fff;text-decoration:underline; font-size: 1.2em;">
+                        Instagram
+                    </a> -->
+                </h2>
             </div>
         </div>
 </body>
