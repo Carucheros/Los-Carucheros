@@ -200,14 +200,12 @@ def create_new():
                 <h1 style="font-family: Special Gothic Expanded One, sans-serif; font-weight: 400;">Contacto:</h1>
                 <h2 style="font-family: Special Gothic, sans-serif; font-weight: 400; font-size: 1.5rem;">
                     📩asoc.loscarucheros@outlook.com<br>
-                    <span style="font-size: 1.2em;">📱</span>
-                    <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank" style="color:#fff;text-decoration:underline; font-size: 1.2em;">
+                    <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank" style="color:#fff;text-decoration:underline; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
                         Facebook
                     </a>
-                    <!-- <span style="font-size: 1.2em;">📸</span>
-                    <a href="https://instagram.com/tu_usuario" target="_blank" style="color:#fff;text-decoration:underline; font-size: 1.2em;">
+                    <a href="https://www.instagram.com/asoc.loscarucheros/" target="_blank" style="color:#fff;text-decoration:underline; margin-left: 1rem; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
                         Instagram
-                    </a> -->
+                    </a>
                 </h2>
             </div>
     </div>

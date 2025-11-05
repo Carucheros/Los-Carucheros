@@ -10,6 +10,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Special+Gothic+Expanded+One&display=swap"
         rel="stylesheet">
+    
+    <style>
+        .floating-facebook {
+            animation: floating 2s ease-in-out infinite;
+        }
+
+        .floating-instagram {
+            animation: floating 2s ease-in-out infinite;
+            animation-delay: 0.3s; /* Subtle offset */
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .social-icon {
+            width: 70px;
+            height: auto;
+            transition: transform 0.2s;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
 
 </head>
 
@@ -28,14 +54,14 @@
 
     <div id="facebook" style="position: absolute; top: 25%; left: 2%;">
         <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank">
-            <img src="images/facebook.png" alt="Facebook" style="width: 70px; height: auto;">
+            <img src="images/facebook.png" alt="Facebook" class="social-icon floating-facebook">
         </a>
     </div>
 
     
     <div id="instagram" style="position: absolute; top: 25%; right: 2%;">
         <a href="https://www.instagram.com/asoc.loscarucheros/" target="_blank">
-            <img src="images/instagram.png" alt="Instagram" style="width: 70px; height: auto;">
+            <img src="images/instagram.png" alt="Instagram" class="social-icon floating-instagram">
         </a>
     </div>
     
@@ -76,12 +102,10 @@
                 <h1 style="font-family: Special Gothic Expanded One, sans-serif; font-weight: 400;">Contacto:</h1>
                 <h2 style="font-family: Special Gothic, sans-serif; font-weight: 400; font-size: 1.5rem;">
                     📩asoc.loscarucheros@outlook.com<br>
-                    <span style="font-size: 1.2em;">📱</span>
-                    <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank" style="color:#fff;text-decoration:underline; font-size: 1.2em;">
+                    <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank" style="color:#fff;text-decoration:underline; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
                         Facebook
                     </a>
-                    <span style="font-size: 1.2em;">📸</span>
-                    <a href="https://www.instagram.com/asoc.loscarucheros/" target="_blank" style="color:#fff;text-decoration:underline; font-size: 1.2em;">
+                    <a href="https://www.instagram.com/asoc.loscarucheros/" target="_blank" style="color:#fff;text-decoration:underline; margin-left: 1rem; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
                         Instagram
                     </a>
                 </h2>

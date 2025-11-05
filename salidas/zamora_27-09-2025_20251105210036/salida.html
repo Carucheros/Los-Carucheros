@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamora 27-09-2025</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../noticia.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="topnav" style="align-items: center;">
+        <a href="../../index.html" class="">Inicio</a>
+        <a href="../../galeria.html" class="">Galería</a>
+        <a href="../../noticiero.html" class="">Noticias</a>
+        <a href="../../salidas.html" class="active">Salidas</a>
+        <a href="../../contacto.html" class="">Contacto</a>
+        <img src="../../logo.png" alt="logo" style="width: 90px; height: auto; margin-left: 20px;">
+    </div>
+    <div id="atras">
+        <a href="../../salidas.html" class="atras">← Volver</a>
+    </div>
+    <h3 style="text-align: left;">Zamora 27-09-2025</h3>
+    <h4 style="text-align: left;"><em>Desfile anual en Zamora</em></h4>
+    <h5 style="text-align: left;"><h2>Festival de la Máscara de Zamora 2025</h2>
+  <p>
+    El <strong>sábado 27 de septiembre de 2025</strong>, los 
+    <strong>Carucheros de Sesnández</strong> desfilaron en el marco del 
+    <em>XIV Festival de la Máscara de Zamora</em>, que reunió 
+    <strong>37 mascaradas</strong> y más de <strong>500 participantes</strong> 
+    en las calles de la ciudad.
+  </p>
+
+  <p>
+    El recorrido comenzó a las 18:00 h desde la <em>Plaza de la Marina</em>, 
+    atravesando <em>Santa Clara</em>, <em>Sagasta</em>, 
+    <em>Plaza Mayor</em> y finalizando en la <em>Plaza de Viriato</em>, 
+    llenando el centro de Zamora de ritmo, color y tradición.
+  </p></h5>
+    <div id="Galeria">
+        <button class="gallery-nav prev" onclick="patras()">❮</button>
+        <div class="container" style="text-align: center;">
+            <img src="images/IMG-20250929-WA0002.jpg" alt="imagen" class="gallery-img" id="gallery-img">
+            <div style="margin-top: 10px;">
+                <a id="download-btn" href="images/IMG-20250929-WA0002.jpg" download>
+                    <button
+                        style="padding: 10px 20px; font-size: 1.5rem; cursor: pointer; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border: 2px solid rgb(0, 0, 0); border-radius: 5px; font-family: Special Gothic; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">💾Descargar</button>
+                </a>
+            </div>
+        </div>
+        <button class="gallery-nav next" onclick="plante()">❯</button>
+    </div>
+    <script>
+        const images = ["images/IMG-20250929-WA0002.jpg", "images/IMG-20250929-WA0022.jpg", "images/IMG-20250929-WA0043.jpg", "images/IMG-20250927-WA0035.jpg", "images/IMG-20250927-WA0037.jpg", "images/IMG-20250927-WA0043.jpg", "images/IMG-20250927-WA0044.jpg", "images/IMG-20250927-WA0050.jpg", "images/IMG-20250927-WA0051.jpg", "images/IMG-20250927-WA0053.jpg", "images/IMG-20250927-WA0055.jpg", "images/IMG-20250927-WA0056.jpg", "images/IMG-20250927-WA0057.jpg", "images/IMG-20250927-WA0059.jpg", "images/IMG-20250927-WA0060.jpg", "images/IMG-20250927-WA0063.jpg"];
+        let index = 0;
+        const imgEl = document.getElementById('gallery-img');
+        function plante() {
+            index = (index + 1) % images.length;
+            updateGallery();
+        }
+        function patras() {
+            index = (index - 1 + images.length) % images.length;
+            updateGallery();
+        }
+        function updateGallery() {
+            imgEl.src = images[index];
+            document.getElementById("download-btn").href = images[index];
+        }
+        function updateNavHeight() {
+            const img = document.getElementById('gallery-img');
+            const navs = document.querySelectorAll('.gallery-nav');
+            const maxHeight = window.innerHeight * 0.7;
+            const imgHeight = Math.min(img.height, maxHeight);
+            navs.forEach(btn => {
+                btn.style.height = imgHeight + 'px';
+            });
+        }
+        imgEl.onload = updateNavHeight;
+        updateGallery();
+        setTimeout(updateNavHeight, 100);
+    </script>
+    <style>
+        #Galeria {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 10px;
+            margin-top: 10px;
+            max-height: 70vh;
+        }
+        .container {
+            background-color: rgb(255, 255, 255);
+            object-fit: cover;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 70vh;
+        }
+        .gallery-img {
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+            max-height: 70vh;
+            border-radius: 10px;
+            object-fit: contain;
+            border: 2px solid black;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            display: block;
+        }
+        .gallery-nav {
+            flex: 1;
+            background-color: transparent;
+            border: none;
+            font-size: 3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+        }
+        .gallery-nav:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <div class="botnav">
+        <div
+            style="color: #ffffff;display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; margin: 20px;">
+            <img src="../../logo_grande.png" alt="logo" style="width: 50%; height: auto;">
+            <div style="text-align: center;">
+                <h1 style="font-family: Special Gothic Expanded One, sans-serif; font-weight: 400;">Contacto:</h1>
+                <h2 style="font-family: Special Gothic, sans-serif; font-weight: 400; font-size: 1.5rem;">
+                    📩asoc.loscarucheros@outlook.com<br>
+                    <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank" style="color:#fff;text-decoration:underline; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
+                        Facebook
+                    </a>
+                    <a href="https://www.instagram.com/asoc.loscarucheros/" target="_blank" style="color:#fff;text-decoration:underline; margin-left: 1rem; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
+                        Instagram
+                    </a>
+                </h2>
+            </div>
+    </div>
+</body>
+</html>
