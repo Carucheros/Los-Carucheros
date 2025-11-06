@@ -77,6 +77,7 @@ def create_new():
     <div id="atras">
         <a href="../../salidas.html" class="atras">← Volver</a>
     </div>
+    <div class="salida-inner">
     <h3 style="text-align: left;">{title}</h3>
     <h4 style="text-align: left;"><em>{subtitle}</em></h4>
     <h5 style="text-align: left;">{text}</h5>
@@ -166,6 +167,13 @@ def create_new():
             background-color: rgba(0, 0, 0, 0.1);
         }}
     </style>
+    <style>
+        .salida-inner, .salida-content {{
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }}
+    </style>
+    </div>
     <div class="botnav">
         <div
             style="color: #ffffff;display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; margin: 20px;">
@@ -177,7 +185,7 @@ def create_new():
                     <a href="https://www.facebook.com/profile.php?id=61577353241141" target="_blank" style="color:#fff;text-decoration:underline; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
                         Facebook
                     </a>
-                    <a href="https://www.instagram.com/asoc.loscarucheros/" target="_blank" style="color:#fff;text-decoration:underline; margin-left: 1rem; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
+                    <a href="https://www.instagram.com/carucheros/" target="_blank" style="color:#fff;text-decoration:underline; margin-left: 1rem; font-family: Special Gothic, sans-serif; font-size: 1.5rem;">
                         Instagram
                     </a>
                 </h2>
@@ -205,6 +213,7 @@ def create_new():
             <h2 ><em>
                     {subtitle}
                 </em></h2>
+            <p style="font-style: italic; font-size: 0.9rem; text-align: left; margin: 0.25rem 0 0 0; padding-left: 0.5rem;">pulsa para ver mas</p>
         </div></a>
         <hr>
     '''
