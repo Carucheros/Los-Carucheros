@@ -12,10 +12,15 @@
       var mail = 'asoc.loscarucheros@outlook.com';
       var href = 'mailto:' + mail;
       try { window.location.href = href; } catch(e){}
+      // Show the manual link after 300ms if needed
       setTimeout(function(){
         var el = document.getElementById('mailto-link');
         if(el) el.style.display = 'inline';
       }, 300);
+      // Redirect to index.html after 5 seconds
+      setTimeout(function(){
+        window.location.href = 'index.html';
+      }, 5000);
     })();
   </script>
   <style>
@@ -31,6 +36,7 @@
     <noscript>
       <p><a href="mailto:asoc.loscarucheros@outlook.com">Enviar email a asoc.loscarucheros@outlook.com</a></p>
     </noscript>
+    <p style="color: #666; font-size: 0.9em; margin-top: 15px;">Volviendo a la página principal en 5 segundos...</p>
   </div>
 </body>
 </html>

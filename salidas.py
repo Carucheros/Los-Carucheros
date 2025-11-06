@@ -213,7 +213,7 @@ def create_new():
             <h2 ><em>
                     {subtitle}
                 </em></h2>
-            <p style="font-style: italic; font-size: 0.9rem; text-align: left; margin: 0.25rem 0 0 0; padding-left: 0.5rem;">pulsa para ver mas</p>
+            <p style="font-style: italic; font-size: 0.9rem; text-align: left; margin: 0.25rem 0 0 0; padding-left: 0.5rem;">Pulsa para ver más</p>
         </div></a>
         <hr>
     '''
